@@ -14,4 +14,14 @@ git clone https://github.com/jshube2/kinect_compressed_transfer.git
 cd ~/catkin_ws
 catkin_make
 ```
+Then to run, first make sure your RGBD image topics are being published.
 
+Then:
+
+```
+cd ~/catkin_ws
+source devel/setup.bash
+roslaunch kinect_compressed_transfer kinect_synchronized_transfer.launch
+```
+
+Enjoy!
