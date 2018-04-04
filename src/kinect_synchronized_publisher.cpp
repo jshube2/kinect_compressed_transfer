@@ -2,8 +2,6 @@
 #include <sensor_msgs/Image.h>
 #include <sensor_msgs/CameraInfo.h>
 
-#define N 0
-
 class KinectSync
 {
 	public:
