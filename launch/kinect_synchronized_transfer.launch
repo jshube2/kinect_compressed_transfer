@@ -1,0 +1,36 @@
+<launch>
+
+	<node pkg="kinect_compressed_transfer" type="kinect_rgb_downloader"
+          name="kinect_rgb_downloader">
+		  
+	<param name="input_rgb_topic" value="/camera/rgb/image_color" type="string"/>
+	<param name="output_rgb_topic" value="/camera/local/rgb_image" type="string"/>
+	<param name="image_transport" value="compressed" />
+	
+    </node>
+	
+	
+    <node pkg="kinect_compressed_transfer" type="kinect_depth_downloader"
+          name="kinect_depth_downloader">
+		  
+	<param name="input_depth_topic" value="/camera/depth_registered/sw_registered/image_rect_raw" type="string"/>
+	<param name="output_depth_topic" value="/camera/local/depth_image" type="string"/>
+	<param name="image_transport" value="compressedDepth" />
+	
+    </node>
+
+	
+    <node pkg="kinect_compressed_transfer" type="kinect_synchronized_publisher"
+          name="kinect_synchronized_publisher">
+		  
+    <param name="input_rgb_topic" value="/camera/local/rgb_image" type="string"/>
+	<param name="input_depth_topic" value="/camera/local/depth_image" type="string"/>
+	<param name="input_camera_topic" value="/camera/rgb/camera_info" type="string"/>
+	
+	<param name="output_rgb_topic" value="/camera/sync/rgb_image" type="string"/>
+	<param name="output_depth_topic" value="/camera/sync/depth_image" type="string"/>
+	<param name="output_camera_topic" value="/camera/sync/camera_info" type="string"/>
+	
+    </node>
+	
+</launch>
